@@ -22,3 +22,20 @@ Lab 3:
 
 Sau khi gọi swap(), tiêu đề (title) của hai DVD vẫn không thay đổi. Điều này cho thấy Java truyền tham số theo giá trị, không phải tham chiếu.
 Sau khi gọi changeTitle(), tiêu đề của jungleDVD thay đổi vì giá trị của thuộc tính title trong đối tượng đã được cập nhật.
+
+
+
+Lab 4:
+What class should implement the Comparable interface?
+	Lớp Media nên triển khai giao diện Comparable vì nó là lớp cơ sở của tất cả các loại media (Book, DigitalVideoDisc, CompactDisc), và việc so sánh chủ yếu liên quan đến các thuộc tính chung như title hoặc cost.
+
+How should you implement the compareTo() method to reflect the ordering that we want?
+	Cách triển khai compareTo() trong Media: Sắp xếp theo title, sau đó đến cost.
+Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+	Không, bạn không thể có hai quy tắc sắp xếp khác nhau nếu chỉ sử dụng Comparable vì lớp chỉ có thể triển khai một phương thức compareTo().
+
+Suppose the DVDs have a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+	Cách thực hiện:
+Triển khai Comparable trong lớp con DigitalVideoDisc để ghi đè quy tắc sắp xếp cụ thể.
+	Cách triển khai compareTo() trong DigitalVideoDisc:
+Thứ tự yêu cầu: Sắp xếp theo title, sau đó là length giảm dần, và cuối cùng là cost.
